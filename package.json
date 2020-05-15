@@ -26,6 +26,7 @@
     "doctoc": "^1.4.0",
     "eslint": "^7.0.0",
     "eslint-config-airbnb-typescript-prettier": "^2.1.1",
+    "eslint-formatter-pretty": "^3.0.1",
     "import-sort": "^6.0.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-config": "^6.0.0",
