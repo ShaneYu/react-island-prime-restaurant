@@ -1,0 +1,19 @@
+{
+  "breadcrumbs.enabled": true,
+  "editor.codeLens": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    80,
+    170
+  ],
+  "files.exclude": {
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*.js.map": {
+      "when": "$(basename)"
+    },
+    "**/.DS_Store": true,
+    "**/.git": true
+  }
+}
