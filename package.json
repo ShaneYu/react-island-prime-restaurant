@@ -37,13 +37,15 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
+    "sort-package-json": "^1.42.2",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "build": "react-scripts build",
-    "format": "run-s format-imports format-prettier format-eslint",
+    "format": "run-s format-package-json format-imports format-prettier format-eslint",
     "format-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix ./",
     "format-imports": "import-sort --write **/*.{js,jsx,ts,tsx}",
+    "format-package-json": "sort-package-json",
     "format-prettier": "prettier --write **/*.{css,html,js,jsx,json,less,md,mdx,scss,ts,tsx,yaml,yml} .editorconfig LICENSE",
     "lint": "run-p lint-eslint",
     "lint--watch": "onchange src/**/* --initial --kill --delay 1000  -- npm run lint",
