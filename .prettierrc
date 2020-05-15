@@ -1,0 +1,14 @@
+{
+  "singleQuote": true,
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": ".editorconfig",
+      "options": { "parser": "yaml" }
+    },
+    {
+      "files": "LICENSE",
+      "options": { "parser": "markdown" }
+    }
+  ]
+}
