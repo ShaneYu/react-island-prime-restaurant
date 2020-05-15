@@ -44,6 +44,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "display-browser-support": "browserslist --stats && echo '' && browserslist --coverage && echo '' && echo 'See more at https://browserl.ist/'",
     "format": "run-s format-doctoc format-package-json format-imports format-prettier format-eslint",
     "format-doctoc": "doctoc --maxlevel 3 --notitle ./README.md ./CONTRIBUTING.md",
     "format-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix ./",
