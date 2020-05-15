@@ -1,0 +1,17 @@
+{
+  "{README,CONTRIBUTING}.md": ["npm run format-doctoc", "git add"],
+  "package.json": ["npm run format-package-json", "git add"],
+  "{.editorconfig, LICENSE}": ["prettier --write", "git add"],
+  "**/*.md": ["markdownlint"],
+  "**/*.{css,html,json,less,md,mdx,scss,yaml,yml}": ["prettier --write", "git add"],
+  "**/*.{js,jsx,ts,tsx}": [
+    "import-sort --write",
+    "prettier --write",
+    "eslint --cache --ext '.js,.jsx,.ts,.tsx' --fix",
+    "git add",
+    "jest --bail --findRelatedTests",
+  ],
+  "src/**/*": [
+    "bash -c 'npm run build'",
+  ],
+}
