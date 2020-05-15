@@ -2,6 +2,19 @@
   "name": "react-island-prime-restaurant",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/ShaneYu/react-island-prime-restaurant",
+  "bugs": {
+    "url": "https://github.com/ShaneYu/react-island-prime-restaurant/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShaneYu/react-island-prime-restaurant.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Shane Yu",
+    "url": "https://github.com/ShaneYu"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
