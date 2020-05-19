@@ -3,5 +3,8 @@
   "extends": ["airbnb-typescript-prettier"],
   "env": {
     "jest": true
+  },
+  "rules": {
+    "global-require": "off"
   }
 }
