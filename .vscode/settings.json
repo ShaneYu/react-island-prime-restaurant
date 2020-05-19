@@ -16,5 +16,6 @@
     "**/.DS_Store": true,
     "**/.git": true
   },
-  "importSorter.generalConfiguration.sortOnBeforeSave": true
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.sortConfiguration.removeUnusedImports": true
 }
