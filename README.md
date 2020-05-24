@@ -3,17 +3,18 @@
 This is the code base for my personal development project for learning
 React/Redux.
 
-⚠ This is **not** and **will not** be distributed as a _"real"_ application.
+> ⚠ This is **not** and **will not** be distributed as a _"real"_ application. ⚠
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Pre-requisites](#pre-requisites)
 - [Getting Started](#getting-started)
-  - [VSCode](#vscode)
+  - [Visual Studio Code](#visual-studio-code)
 - [Available Scripts](#available-scripts)
   - [`npm start`](#npm-start)
+  - [`npm start:app`](#npm-startapp)
+  - [`npm start:server`](#npm-startserver)
   - [`npm test`](#npm-test)
   - [`npm run build`](#npm-run-build)
   - [`npm run format`](#npm-run-format)
@@ -21,6 +22,8 @@ React/Redux.
   - [`npm run display-browser-support`](#npm-run-display-browser-support)
   - [`npm run validate`](#npm-run-validate)
   - [`npm run prepublish`](#npm-run-prepublish)
+- [Environment Variables](#environment-variables)
+  - [What other .env files can be used?](#what-other-env-files-can-be-used)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -39,18 +42,22 @@ In order to build and run this project you will require the following...
 To get started, clone this repository and execute the command `npm ci` to
 install all of the require dependencies.
 
-It is recommended that you use VSCode, however you can use any IDE you desire;
+It is recommended that you use [VSCode](https://code.visualstudio.com),
+however you can use any IDE you desire;
 if you use VSCode you will benefit from configured settings, debugging and
 recommended extensions.
 
-### VSCode
+### Visual Studio Code
 
 If you've decided to use VSCode as your IDE, it is highly recommended that you
 install the workspace recommended extensions as these and the workspace settings
 have been configured to aid with development but adding linting and automatic
-formatting on save. This will help prevent accidental missing semi-colons or bad
-indentation etc. Please note that it will **NOT** fix everything for you, but it
-will highlight any and all problems for quicker feedback.
+formatting on save.
+
+Automatic formating and linting will help prevent accidental missing semi-colons
+or bad indentation etc.<br />
+Please note that it will **NOT** fix everything for you, but it will highlight
+any and all problems for quicker feedback.
 
 #### Debugging Application
 
@@ -67,9 +74,24 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.<br />
+Runs the backend server in the development mode.
+
+_Essentially an alias that runs both the app and server in development mode._
+
+### `npm start:app`
+
+Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+### `npm start:server`
+
+Runs the backend server in the development mode.<br />
+Open [http://localhost:3001](http://localhost:3001) to access the API in the browser.
+
+The server will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ### `npm test`
@@ -164,14 +186,64 @@ publishing.
 
 _This is an automatic script ran by npm when using the `npm publish` command._
 
+## Environment Variables
+
+This project consumes several environment variables that declared in .env files.
+<br />There is also a built in environment variable called NODE_ENV. When using
+`npm start` or `npm run start:app` it is always equal to `development`, when
+you run `npm test` it is always equal to `test` and when you run
+`npm run build` to make a production bundle, it is always equal to
+`production`.
+
+**You cannot override `NODE_ENV` manually.\*** This prevents developers from
+accidently devploying a slow development build to production.
+
+### What other .env files can be used?
+
+- `.env`: Default.
+- `.env.local`: Local overrides.
+  **This file is loaded for all environments except test.**
+- `.env.development`, `.env.test`, `.env.production`: Environment-specific
+  settings.
+- `.env.development.local`, `.env.test.local`, `.env.production.local`:
+  Local overrides of environment-specific settings.
+
+Files on the left have more priority that the files on the right:
+
+- `npm start`: `.env.development.local`, `.env.development`, `.env.local`,
+  `.env`
+- `npm run build`: `.env.production.local`, `.env.production`, `.env.local`,
+  `.env`
+- `npm test`: `.env.test.local`, `.env.test`, `.env` (note `.env.local` is
+  missing)
+
+You can expand/use variables already on your machine in the .env files.
+
+For example, to get the environment variable `npm_package_version`:
+
+```
+EXAMPLE_VARIABLE=$npm_package_version
+# also works:
+# EXAMPLE_VARIABLE=${npm_package_version}
+```
+
+Or expand variables local to the current `.env` file:
+
+```
+DOMAIN=www.example.com
+EXAMPLE_BLAH=$DOMAIN/blah
+EXAMPLE_MEH=$DOMAIN/meh
+```
+
 ## Contributing
 
 To contribute to this project, please follow our
 [contributing guidelines](CONTRIBUTING.md).
 
 Please note that on every commit you make, automatic linting of code and commit
-comments will be performed. This also includes running of all jest tests that
-are affected by the changes staged.
+comments will be performed.<br />
+This also includes running of all jest tests that are affected by the changes
+staged.
 
 As part of this automatic linting, it will attempt to auto format and fix some
 of the basic issues like indentation, missing semi-colons etc, but it will not
@@ -181,5 +253,5 @@ Once that has been done, if there are any changes made as a result of the
 automatic formatting, they will be staged and you will need to commit these.
 
 Lastly, if there is any linting errors that cannot be fixed automatically, the
-commit will fail and the log output will indicate the problems. You will need to
-address these manually and then recommit.
+commit will fail and the log output will indicate the problems.<br />
+You will need to address these manually and then recommit.
