@@ -1,5 +1,6 @@
 import './styles/main.scss';
 
+import { ConnectedRouter as Router } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -20,7 +21,9 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <WaitingProvider>
-      <App history={history} />
+      <Router history={history}>
+        <App />
+      </Router>
     </WaitingProvider>
   </Provider>,
   document.getElementById('root')
