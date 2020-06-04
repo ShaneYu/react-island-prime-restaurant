@@ -1,4 +1,6 @@
 .page_404 {
+  margin-top: 60px;
+
   img {
     width: 100%;
   }
@@ -8,10 +10,6 @@
     height: 400px;
     background-position: center;
     background-repeat: no-repeat;
-
-    h1 {
-      font-size: 80px;
-    }
   }
 
   &_content {
