@@ -1,7 +1,11 @@
 import React from 'react';
 
-import Navigation from './Navigation';
+import Navigation from './navigation/Navigation';
 
-const Header: React.FC = () => <Navigation />;
+const Header = () => (
+  <header className="sticky-top">
+    <Navigation />
+  </header>
+);
 
 export default Header;

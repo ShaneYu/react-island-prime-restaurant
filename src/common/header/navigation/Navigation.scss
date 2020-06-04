@@ -1,0 +1,155 @@
+@import '../../../styles/variables';
+@import '~bootstrap/scss/mixins';
+
+#headerNavbar {
+  min-height: 56px;
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.2);
+
+  .navbar-brand {
+    padding: 0;
+
+    a {
+      text-decoration: none;
+
+      .logo {
+        padding: 0;
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    background: transparent !important;
+
+    .icon-bar {
+      width: 22px;
+      height: 2px;
+      background-color: #fff;
+      display: block;
+      transition: all 0.2s;
+      margin-top: 4px;
+    }
+
+    .top-bar {
+      transform: translate(3px) rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+
+    .middle-bar {
+      opacity: 0;
+    }
+
+    .bottom-bar {
+      transform: translate(3px) rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+
+    &.collapsed {
+      .top-bar {
+        transform: rotate(0);
+      }
+
+      .middle-bar {
+        opacity: 1;
+      }
+
+      .bottom-bar {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .nav-link::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: transparent;
+    width: 0%;
+    opacity: 0;
+    transition: opacity 0.4s, width 0.2s, background-color 0.4s;
+    transition-timing-function: ease-in-out;
+    padding: 2px 0 0 0;
+    margin: 0 auto;
+  }
+
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    width: 100%;
+    opacity: 1;
+    transition-timing-function: ease-out;
+  }
+
+  &.bg-white {
+    background-color: rgba(52, 58, 64, 0.6);
+
+    .navbar-brand a {
+      color: $dark;
+    }
+
+    .nav-link {
+      &.active::after,
+      &:hover::after {
+        background-color: $dark;
+      }
+    }
+
+    .navbar-toggler {
+      .icon-bar {
+        background-color: $dark;
+      }
+    }
+
+    transition: all 200ms linear;
+  }
+
+  &.bg-black-transparent {
+    .navbar-brand a {
+      color: $white;
+    }
+
+    .nav-link {
+      color: $white;
+
+      &.active::after,
+      &:hover::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+
+    &.bg-black-transparent {
+      background-color: rgb(52, 58, 64);
+    }
+
+    .navbar-brand {
+      margin-left: 15px;
+      min-height: 58px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .nav-link {
+      padding: 2px 15px;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      background-color: darken($dark, 3%);
+    }
+
+    &.bg-white {
+      .nav-link.active,
+      .nav-link:hover {
+        background-color: darken($white, 5%);
+      }
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+  }
+}
