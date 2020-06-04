@@ -7,28 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 library.add(faCalendar, faClock, faUser, faChevronDown);
 
-const BookTable = () => {
+export interface BookTableProps {
+  className?: string | undefined;
+}
+
+const BookTable = ({ className }: BookTableProps) => {
   return (
-    <Container>
-      {/* <Row className="my-5">
-        {popularItems.map((item) => (
-          <Col xs={12} sm={6} lg={3} className="py-2">
-            <Card className="card-effect-md-zoom shadow h-100 px-0">
-              <img
-                className="card-img-top img-fluid"
-                src={require('../../' + item.image)}
-                alt={item.name}
-              />
-              <div className="card-body text-center px-3">
-                <h4 className="card-title">{item.name}</h4>
-                <p className="card-text">{item.description}</p>
-              </div>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      <hr /> */}
-      <Row className="my-4 my-md-5 flex-column flex-md-row">
+    <Container className={className}>
+      <Row className="flex-column flex-md-row">
         <Col className="flex-grow-1 flex-md-grow-0 mb-3 mb-md-0 text-center text-md-left">
           <img
             src={require('../../assets/images/misc/clock.gif')}
