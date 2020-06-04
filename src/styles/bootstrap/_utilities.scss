@@ -1,0 +1,20 @@
+@import './variables';
+
+// Text Utilities
+.text-fancy {
+  font-family: $font-family-libre-baskerville;
+}
+
+.text-shadow-dark {
+  text-shadow: 2px 2px $dark;
+}
+
+// Background Color Utilities
+.bg-black-transparent {
+  background-color: rgba($dark, 0.7);
+}
+
+// Border Utilities
+.border-muted {
+  border-color: $gray-600;
+}
