@@ -3,9 +3,9 @@ import { History } from 'history';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from '../shared/header/Header';
-import PageNotFound from '../shared/page-not-found/PageNotFound';
-import ScrollToTop from '../shared/scroll-to-top/ScrollToTop';
+import Header from '../common/header/Header';
+import PageNotFound from '../common/page-not-found/PageNotFound';
+import ScrollToTop from '../common/scroll-to-top/ScrollToTop';
 import HomePage from './HomePage';
 
 interface AppProps {
