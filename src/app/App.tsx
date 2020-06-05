@@ -3,7 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 
 import Header from '../common/header/Header';
 import ScrollToTop from '../common/scroll-to-top/ScrollToTop';
-import Menu from '../menu/Menu';
+import Home from '../home/Home';
 import PageNotFound from '../page-not-found/PageNotFound';
 
 interface RouteInfo {
@@ -14,7 +14,7 @@ interface RouteInfo {
 }
 
 const routes: RouteInfo[] = [
-  { path: '/', name: 'Menu', component: Menu, exact: true },
+  { path: '/', name: 'Menu', component: Home, exact: true },
 ];
 
 const App = () => {

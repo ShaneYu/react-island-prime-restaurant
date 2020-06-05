@@ -3,7 +3,7 @@ import { History } from 'history';
 import { combineReducers } from 'redux';
 
 import appReducer, { AppState } from './app/reducer';
-import menuReducer, { MenuState } from './menu/reducer';
+import menuReducer, { MenuState } from './home/reducer';
 
 export interface GlobalState {
   app: AppState;

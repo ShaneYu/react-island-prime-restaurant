@@ -4,8 +4,8 @@ import BookTable from './book-table/BookTable';
 import Intro from './intro/Intro';
 import PopularItems from './popular-items/PopularItems';
 
-const Menu = () => (
-  <div id="menuPage">
+const Home = () => (
+  <div id="homePage">
     <Intro />
     <PopularItems className="py-3 py-lg-5" />
     <hr className="container" />
@@ -13,4 +13,4 @@ const Menu = () => (
   </div>
 );
 
-export default Menu;
+export default Home;
