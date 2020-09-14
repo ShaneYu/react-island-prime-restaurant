@@ -1,9 +1,10 @@
-import { ResponseError } from '../common/api/common/ResponseError';
-import Item from '../common/models/Item';
+import { AxiosError } from 'axios';
+
+import MenuItem from '../menu/models/MenuItem';
 import { GlobalState } from '../rootReducer';
 
-export const getItems = (state: GlobalState): Item[] => state.menu.items;
-export const getPopularItems = (state: GlobalState): Item[] =>
+export const getItems = (state: GlobalState): MenuItem[] => state.menu.items;
+export const getPopularItems = (state: GlobalState): MenuItem[] =>
   state.menu.popularItems;
 
 export const getIsFetchingItems = (state: GlobalState): boolean =>
@@ -12,9 +13,10 @@ export const getIsFetchingItems = (state: GlobalState): boolean =>
 export const getIsFetchingPopularItems = (state: GlobalState): boolean =>
   state.menu.isFetchingPopularItems;
 
-export const getItemsError = (state: GlobalState): ResponseError | undefined =>
-  state.menu.itemsError;
+export const getItemsError = (
+  state: GlobalState
+): AxiosError | Error | undefined => state.menu.itemsError;
 
 export const getPopularItemsError = (
   state: GlobalState
-): ResponseError | undefined => state.menu.popularItemsError;
+): AxiosError | Error | undefined => state.menu.popularItemsError;

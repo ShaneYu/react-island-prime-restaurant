@@ -1,17 +1,17 @@
+import { AxiosError } from 'axios';
 import produce from 'immer';
 import actionCreatorFactory from 'typescript-fsa';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-import { ResponseError } from '../common/api/common/ResponseError';
-import Item from '../common/models/Item';
+import MenuItem from '../menu/models/MenuItem';
 
 export interface MenuState {
   isFetchingItems: boolean;
   isFetchingPopularItems: boolean;
-  items: Item[];
-  popularItems: Item[];
-  itemsError?: ResponseError;
-  popularItemsError?: ResponseError;
+  items: MenuItem[];
+  popularItems: MenuItem[];
+  itemsError?: AxiosError | Error;
+  popularItemsError?: AxiosError | Error;
 }
 
 export const initialState: MenuState = {
@@ -24,8 +24,10 @@ export const initialState: MenuState = {
 const actionCreator = actionCreatorFactory('MENU');
 
 export const menuActions = {
-  fetchItems: actionCreator.async<void, Item[], ResponseError>('FETCH_ITEMS'),
-  fetchPopularItems: actionCreator.async<void, Item[], ResponseError>(
+  fetchItems: actionCreator.async<void, MenuItem[], AxiosError | Error>(
+    'FETCH_ITEMS'
+  ),
+  fetchPopularItems: actionCreator.async<void, MenuItem[], AxiosError | Error>(
     'FETCH_POPULAR_ITEMS'
   ),
 };

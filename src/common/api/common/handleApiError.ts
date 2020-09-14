@@ -1,18 +1,27 @@
+import { AxiosResponse } from 'axios';
+import { toastr } from 'react-redux-toastr';
 import { AnyAction } from 'redux';
 import { put } from 'redux-saga/effects';
+
+import isAxiosError from './isAxisorError';
 
 export default function* handleApiError(
   error: any,
   failureAction?: (error?: any) => AnyAction
 ) {
-  const response = error.response;
-
-  if (response !== undefined) {
-    // TODO: When adding auth to this application, use `response.status === 401` and redirect to login page!
+  if (failureAction !== undefined) {
+    yield put(failureAction(error));
     return;
   }
 
-  if (failureAction !== undefined) {
-    yield put(failureAction());
+  if (isAxiosError<AxiosResponse>(error)) {
+    if (error.response) {
+      toastr.error(
+        'API request failure',
+        `A API request has failed with status code '${
+          error.response!.status
+        }' and message '${error.response!.statusText}'`
+      );
+    }
   }
 }

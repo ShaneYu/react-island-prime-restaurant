@@ -1,4 +1,4 @@
-class ItemCategory {
+class MenuCategory {
   id: string;
   name: string;
   description: string;
@@ -12,4 +12,4 @@ class ItemCategory {
   }
 }
 
-export default ItemCategory;
+export default MenuCategory;
