@@ -1,6 +1,6 @@
-import Item from '../../src/shared/models/Item';
+import MenuItem from '../../src/menu/models/MenuItem';
 
-const items: Item[] = [
+const items: MenuItem[] = [
   {
     id: '63bb38eb-b636-4ab4-86eb-e1f545bc7273',
     categoryId: '4afb73bb-1465-4c4b-b421-d58af3b55757',

@@ -6,8 +6,8 @@ import { Action } from 'typescript-fsa';
 import { bindAsyncAction } from 'typescript-fsa-redux-saga';
 
 import handleApiError from '../common/api/common/handleApiError';
-import { fetchItems, fetchPopularItems } from '../menu/services/menuApi';
 import { menuActions } from './reducer';
+import { fetchItems, fetchPopularItems } from './services/menuApi';
 
 const fetchItemsWorker = bindAsyncAction(menuActions.fetchItems, {
   skipStartedAction: true,

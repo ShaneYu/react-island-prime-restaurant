@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 
-import MenuItem from '../menu/models/MenuItem';
 import { GlobalState } from '../rootReducer';
+import MenuItem from './models/MenuItem';
 
 export const getItems = (state: GlobalState): MenuItem[] => state.menu.items;
 export const getPopularItems = (state: GlobalState): MenuItem[] =>

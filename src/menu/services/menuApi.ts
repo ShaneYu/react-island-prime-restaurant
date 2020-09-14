@@ -1,17 +1,19 @@
 import axios, { AxiosResponse, CancelToken } from 'axios';
 
+import MenuCategory from '../models/MenuCategory';
 import MenuItem from '../models/MenuItem';
+
+const GET_ITEMS_URL = `${process.env.REACT_APP_API_BASE_URL}/items`;
+const GET_ITEMS_POPULAR_URL = `${process.env.REACT_APP_API_BASE_URL}/items/popular`;
 
 export async function fetchItems(
   cancelToken: CancelToken
 ): Promise<AxiosResponse<MenuItem[]>> {
-  const url = `${process.env.REACT_APP_API_BASE_URL}/items`;
-  return axios.get<MenuItem[]>(url, { cancelToken });
+  return axios.get<MenuItem[]>(GET_ITEMS_URL, { cancelToken });
 }
 
 export async function fetchPopularItems(
   cancelToken: CancelToken
 ): Promise<AxiosResponse<MenuItem[]>> {
-  const url = `${process.env.REACT_APP_API_BASE_URL}/items/popular`;
-  return axios.get<MenuItem[]>(url, { cancelToken });
+  return axios.get<MenuItem[]>(GET_ITEMS_POPULAR_URL, { cancelToken });
 }

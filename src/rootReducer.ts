@@ -4,7 +4,7 @@ import { reducer as toastrReducer, ToastrState } from 'react-redux-toastr';
 import { combineReducers } from 'redux';
 
 import appReducer, { AppState } from './app/reducer';
-import menuReducer, { MenuState } from './home/reducer';
+import menuReducer, { MenuState } from './menu/reducer';
 
 export interface GlobalState {
   app: AppState;

@@ -3,7 +3,7 @@ import produce from 'immer';
 import actionCreatorFactory from 'typescript-fsa';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-import MenuItem from '../menu/models/MenuItem';
+import MenuItem from './models/MenuItem';
 
 export interface MenuState {
   isFetchingItems: boolean;

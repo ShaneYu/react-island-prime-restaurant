@@ -4,9 +4,9 @@ import Skeleton from 'react-loading-skeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trail } from 'react-spring/renderprops';
 
+import { menuActions } from '../../menu/reducer';
+import { getIsFetchingPopularItems, getPopularItems } from '../../menu/selectors';
 import { GlobalState } from '../../rootReducer';
-import { menuActions } from '../reducer';
-import { getIsFetchingPopularItems, getPopularItems } from '../selectors';
 
 export interface PopularItemsProps {
   className?: string | undefined;

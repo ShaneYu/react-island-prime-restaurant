@@ -3,9 +3,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trail } from 'react-spring/renderprops';
 
-import { menuActions } from '../home/reducer';
-import { getIsFetchingItems, getItems, getItemsError } from '../home/selectors';
 import { GlobalState } from '../rootReducer';
+import { menuActions } from './reducer';
+import { getIsFetchingItems, getItems, getItemsError } from './selectors';
 
 const groupBy = <T, K>(list: T[], getKey: (item: T) => K) => {
   const map = new Map<K, T[]>();
