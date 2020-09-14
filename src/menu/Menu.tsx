@@ -5,38 +5,28 @@ import { Trail } from 'react-spring/renderprops';
 
 import { GlobalState } from '../rootReducer';
 import { menuActions } from './reducer';
-import { getIsFetchingItems, getItems, getItemsError } from './selectors';
-
-const groupBy = <T, K>(list: T[], getKey: (item: T) => K) => {
-  const map = new Map<K, T[]>();
-
-  list.forEach((item) => {
-    const key = getKey(item);
-    const collection = map.get(key);
-
-    if (!collection) {
-      map.set(key, [item]);
-    } else {
-      collection.push(item);
-    }
-  });
-
-  return Array.from(map.values());
-};
+import {
+    getCategories, getCategoriesError, getIsFetchingCategories, getIsFetchingItems, getItems,
+    getItemsError
+} from './selectors';
 
 const Menu = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: GlobalState) => getItems(state));
+  const categories = useSelector((state: GlobalState) => getCategories(state));
 
   const isFetching = useSelector((state: GlobalState) =>
-    getIsFetchingItems(state)
+    getIsFetchingCategories(state) || getIsFetchingItems(state)
   );
 
-  const error = useSelector((state: GlobalState) => getItemsError(state));
+  const error = useSelector((state: GlobalState) =>
+    getCategoriesError(state) || getItemsError(state));
 
   useEffect(() => {
+    const requestCategories = async () => dispatch(menuActions.fetchCategories.started());
     const requestItems = async () => dispatch(menuActions.fetchItems.started());
 
+    requestCategories();
     requestItems();
   }, [dispatch]);
 
@@ -47,17 +37,22 @@ const Menu = () => {
   if (error || !items) return null;
 
   return (
-    <>
-      {groupBy(items, (item) => item.categoryId).map((group) => (
-        <Container key={group[0].categoryId}>
+    <Trail
+      items={categories}
+      keys={(category) => category.id}
+      from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
+      to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
+    >
+      {(category) => (props) => (
+        <Container style={props}>
           <Row>
-            <Col>{group[0].categoryId}</Col>
+            <Col>{category.name}</Col>
           </Row>
           <Row>
             <Col>
               <ul>
                 <Trail
-                  items={group}
+                  items={items.filter((item) => item.categoryId === category.id)}
                   keys={(item) => item.id}
                   from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
                   to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
@@ -71,9 +66,8 @@ const Menu = () => {
               </ul>
             </Col>
           </Row>
-        </Container>
-      ))}
-    </>
+        </Container>)}
+    </Trail>
   );
 };
 

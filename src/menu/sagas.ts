@@ -7,7 +7,25 @@ import { bindAsyncAction } from 'typescript-fsa-redux-saga';
 
 import handleApiError from '../common/api/common/handleApiError';
 import { menuActions } from './reducer';
-import { fetchItems, fetchPopularItems } from './services/menuApi';
+import { fetchCategories, fetchItems, fetchPopularItems } from './services/menuApi';
+
+const fetchCategoriesWorker = bindAsyncAction(menuActions.fetchCategories, {
+  skipStartedAction: true,
+})(function* (): SagaIterator {
+  const cancelSource = axios.CancelToken.source();
+
+  try {
+    const { data } = yield call(fetchCategories, cancelSource.token);
+
+    return data;
+  } catch (error) {
+    yield call(handleApiError, error);
+  } finally {
+    if (yield cancelled()) {
+      yield call(cancelSource.cancel);
+    }
+  }
+});
 
 const fetchItemsWorker = bindAsyncAction(menuActions.fetchItems, {
   skipStartedAction: true,
@@ -44,6 +62,16 @@ const fetchPopularItemsWorker = bindAsyncAction(menuActions.fetchPopularItems, {
     }
   }
 });
+
+export function* watchCategoriesRequest() {
+  while (true) {
+    const action: Action<void> = yield take(menuActions.fetchCategories.started);
+    const worker = yield spawn(fetchCategoriesWorker, action.payload);
+
+    yield take(LOCATION_CHANGE);
+    yield cancel(worker);
+  }
+}
 
 export function* watchItemsRequest() {
   while (true) {
