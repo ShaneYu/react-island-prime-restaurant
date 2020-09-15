@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Media, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trail } from 'react-spring/renderprops';
 
@@ -42,28 +42,44 @@ const Menu = () => {
       keys={(category) => category.id}
       from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
       to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
+      config={{
+        duration: 250
+      }}
     >
       {(category) => (props) => (
-        <Container style={props}>
+        <Container as="section" className="menu__category my-5" style={props}>
           <Row>
-            <Col>{category.name}</Col>
+            <Col className="text-center">
+              <p className="menu__category_description">{category.description}</p>
+              <h2 className="menu__category_name">{category.name}</h2>
+            </Col>
           </Row>
-          <Row>
-            <Col>
-              <ul>
-                <Trail
-                  items={items.filter((item) => item.categoryId === category.id)}
-                  keys={(item) => item.id}
-                  from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
-                  to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
-                >
-                  {(item) => (props) => (
-                    <li style={props}>
-                      {item.name} - &pound;{item.price}
-                    </li>
-                  )}
-                </Trail>
-              </ul>
+          <Row noGutters>
+            <Col className="menu__category_items d-flex flex-wrap">
+              <Trail
+                items={items.filter((item) => item.categoryId === category.id)}
+                keys={(item) => item.id}
+                from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
+                to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
+                config={{
+                  duration: 500,
+                  delay: 250
+                }}
+              >
+                {(item) => (props) => (
+                  <Media className="col-12 col-lg-6" style={props}>
+                    <img width={80} height={80} className="media-img img-fluid rounded-circle align-self-start mr-3" src={require(`../assets/images/items/square/${item.id}.jpg`)} alt={`${item.name}`} />
+                    <Media.Body>
+                      <h3>{item.name}</h3>
+                      <p>{item.description}</p>
+                    </Media.Body>
+                    <div className="media-actions d-flex flex-column justify-content-between align-self-start h-100 ml-3">
+                      <div className="text-right">&pound;{item.price}</div>
+                      <Button className="text-uppercase" variant="outline-dark" size="sm" >Add</Button>
+                    </div>
+                  </Media>
+                )}
+              </Trail>
             </Col>
           </Row>
         </Container>)}

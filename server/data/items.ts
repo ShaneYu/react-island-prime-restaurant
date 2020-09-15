@@ -74,12 +74,12 @@ const items: MenuItem[] = [
     price: 13,
   },
   {
-    id: '3ea2e0ab-3f7f-4c28-80ae-137c4e296bac',
+    id: '3f261921-f82d-435e-8f2a-ac2efeab7765',
     categoryId: '4afb73bb-1465-4c4b-b421-d58af3b55757',
-    name: 'Crispy chicken toast',
+    name: 'Smoked salmon',
     description:
-      'Interdum iusto pulvinar consequuntur augue optionome faguroso otto melone.',
-    price: 11,
+      'Aute irure dolo irure dolor in reprehenderit in voluptate velito esse cillume.',
+    price: 9.5,
   },
   {
     id: '02aeeb8b-e351-4311-b719-5e0065efc1e3',
@@ -98,12 +98,12 @@ const items: MenuItem[] = [
     price: 35,
   },
   {
-    id: '3f261921-f82d-435e-8f2a-ac2efeab7765',
+    id: '3ea2e0ab-3f7f-4c28-80ae-137c4e296bac',
     categoryId: 'fcf5bbcb-0ca1-433e-addd-5efe1d0f61a0',
-    name: 'Smoked salmon',
+    name: 'Succulent cheese burger',
     description:
-      'Aute irure dolo irure dolor in reprehenderit in voluptate velito esse cillume.',
-    price: 9.5,
+      'Interdum iusto pulvinar consequuntur augue optionome faguroso otto melone.',
+    price: 11,
   },
   {
     id: 'e6a6196a-8593-4118-8c4e-d11bdc1247fb',
