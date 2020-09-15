@@ -19,6 +19,18 @@ const itemCategories: MenuCategory[] = [
     description: 'Hand made ice creams and desserts',
     order: 3
   },
+  {
+    id: '7786205f-f7bc-417b-9005-ec3ffedb55c1',
+    name: 'Red wines',
+    description: 'Exclusive wines selection',
+    order: 4
+  },
+  {
+    id: '7d007975-e2aa-4972-9375-d44de2c04d0c',
+    name: 'White wines',
+    description: 'Exclusive wines selection',
+    order: 5
+  }
 ];
 
 export default itemCategories;

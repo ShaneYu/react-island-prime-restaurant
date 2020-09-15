@@ -225,6 +225,62 @@ const items: MenuItem[] = [
       'Prtino dolo irure dolor in reprehenderit in voluptate velito esse cillume.',
     price: 11,
   },
+  {
+    id: 'd78632dc-d6ce-47c9-be27-5890961c8671',
+    categoryId: '7786205f-f7bc-417b-9005-ec3ffedb55c1',
+    name: 'Lambrisco of Montecitorio',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 9
+  },
+  {
+    id: '729c324d-47c0-4bbb-82b3-24932fc9450f',
+    categoryId: '7786205f-f7bc-417b-9005-ec3ffedb55c1',
+    name: 'Bourdeux De Lemon',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 10
+  },
+  {
+    id: 'bd081cdc-2dc2-4afb-8aa2-7906f5169f8f',
+    categoryId: '7786205f-f7bc-417b-9005-ec3ffedb55c1',
+    name: 'Red Storicola',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 9
+  },
+  {
+    id: 'fa85443a-2826-40f1-a3d9-72e2f4e5e5e3',
+    categoryId: '7786205f-f7bc-417b-9005-ec3ffedb55c1',
+    name: 'Fragolino',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 21
+  },
+  {
+    id: '6b4db6a6-e33d-4eac-89a5-bfc33abed1f6',
+    categoryId: '7d007975-e2aa-4972-9375-d44de2c04d0c',
+    name: 'Champagne',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 9
+  },
+  {
+    id: '25df59c8-e6e3-4feb-b6a4-60cf89ec5f53',
+    categoryId: '7d007975-e2aa-4972-9375-d44de2c04d0c',
+    name: 'Roast partridge',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 10
+  },
+  {
+    id: '841234c1-59ae-4a41-8bc6-6a88a452a7e8',
+    categoryId: '7d007975-e2aa-4972-9375-d44de2c04d0c',
+    name: 'White Storicola',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 9
+  },
+  {
+    id: '6c50515f-3157-4eca-87d0-e3f97e8a6f41',
+    categoryId: '7d007975-e2aa-4972-9375-d44de2c04d0c',
+    name: 'Spumante',
+    description: 'Duis aute irure dolo irure dolor in reprehen derit in voluptate velito esse cillume.',
+    price: 21
+  }
 ];
 
 export default items;
