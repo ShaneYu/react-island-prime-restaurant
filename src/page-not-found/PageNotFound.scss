@@ -1,0 +1,18 @@
+.page_404 {
+  margin-top: 60px;
+
+  img {
+    width: 100%;
+  }
+
+  &_bg {
+    background-image: url(./caveman_shock.gif);
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &_content {
+    margin-top: -50px;
+  }
+}

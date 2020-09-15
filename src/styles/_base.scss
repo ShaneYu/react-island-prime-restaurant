@@ -1,0 +1,21 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-top: -58px;
+  perspective: 1px;
+  transform-style: preserve-3d;
+}
+
+#root {
+  opacity: 1;
+  transition: all ease-in 1s;
+}
+
+main > div {
+  transition: all ease-in 1s;
+}

@@ -1,0 +1,24 @@
+@import './mixins/cards';
+
+.card {
+  @include make-card-effect('&.card-effect', 'zoom') {
+    transition: all 1s ease;
+
+    &:hover {
+      box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.35) !important;
+      transform: scale(1.05);
+    }
+  }
+
+  @include make-card-effect('.card-img-effect', 'zoom') {
+    overflow: hidden;
+
+    img {
+      transition: all 1s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.2);
+    }
+  }
+}
