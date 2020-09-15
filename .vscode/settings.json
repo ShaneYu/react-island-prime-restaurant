@@ -17,7 +17,9 @@
     "**/.git": true
   },
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
-  "importSorter.sortConfiguration.removeUnusedImports": true,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importSorter.importStringConfiguration.quoteMark": "single",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
   "path-intellisense.mappings": {
     "~": "${workspaceRoot}/node_modules/"
   }

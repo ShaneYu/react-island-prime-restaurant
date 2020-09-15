@@ -1,7 +1,10 @@
 class MenuCategory {
   id: string;
+
   name: string;
+
   description: string;
+
   order?: number;
 
   constructor(id: string, name: string, description: string, order?: number) {

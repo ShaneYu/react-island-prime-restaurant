@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosResponse } from 'axios';
 import { toastr } from 'react-redux-toastr';
 import { AnyAction } from 'redux';
@@ -18,9 +19,7 @@ export default function* handleApiError(
     if (error.response) {
       toastr.error(
         'API request failure',
-        `A API request has failed with status code '${
-          error.response!.status
-        }' and message '${error.response!.statusText}'`
+        `A API request has failed with status code '${error.response.status}' and message '${error.response.statusText}'`
       );
     }
   }

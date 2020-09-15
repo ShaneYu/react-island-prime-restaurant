@@ -21,14 +21,14 @@ router.get('/popular', (_, res) => res.json(popularItems));
 
 // GET /:id - gets single item (404 if not found)
 router.get(`/:id(${constants.uuidv4Regex})`, (req, res) => {
-  const item = items.find((item) => item.id === req.params.id);
+  const foundItem = items.find((item) => item.id === req.params.id);
 
-  if (!item) {
+  if (!foundItem) {
     res.sendStatus(404);
     return;
   }
 
-  res.json(item);
+  res.json(foundItem);
 });
 
 export default router;

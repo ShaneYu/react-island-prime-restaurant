@@ -9,11 +9,15 @@ import { bindAsyncAction } from 'typescript-fsa-redux-saga';
 import handleApiError from '../common/api/common/handleApiError';
 import MenuCategory from './models/MenuCategory';
 import { menuActions } from './reducer';
-import { fetchCategories, fetchItems, fetchPopularItems } from './services/menuApi';
+import {
+    fetchCategories,
+    fetchItems,
+    fetchPopularItems
+} from './services/menuApi';
 
 const fetchCategoriesWorker = bindAsyncAction(menuActions.fetchCategories, {
   skipStartedAction: true,
-})(function* (): SagaIterator {
+})(function *fetchCategoriesSaga(): SagaIterator {
   const cancelSource = axios.CancelToken.source();
 
   try {
@@ -27,11 +31,13 @@ const fetchCategoriesWorker = bindAsyncAction(menuActions.fetchCategories, {
       yield call(cancelSource.cancel);
     }
   }
+
+  return [];
 });
 
 const fetchItemsWorker = bindAsyncAction(menuActions.fetchItems, {
   skipStartedAction: true,
-})(function* (): SagaIterator {
+})(function *fetchItemsSaga(): SagaIterator {
   const cancelSource = axios.CancelToken.source();
 
   try {
@@ -45,11 +51,13 @@ const fetchItemsWorker = bindAsyncAction(menuActions.fetchItems, {
       yield call(cancelSource.cancel);
     }
   }
+
+  return [];
 });
 
 const fetchPopularItemsWorker = bindAsyncAction(menuActions.fetchPopularItems, {
   skipStartedAction: true,
-})(function* (): SagaIterator {
+})(function *fetchPopularItemsSaga(): SagaIterator {
   const cancelSource = axios.CancelToken.source();
 
   try {
@@ -63,6 +71,8 @@ const fetchPopularItemsWorker = bindAsyncAction(menuActions.fetchPopularItems, {
       yield call(cancelSource.cancel);
     }
   }
+
+  return [];
 });
 
 export function* watchCategoriesRequest() {
@@ -88,14 +98,14 @@ export function* watchItemsRequest() {
 export function* watchPopularItemsRequest() {
   while (true) {
     try {
-      const action: Action<void> = yield take(
-        menuActions.fetchPopularItems.started
-      );
+      const action: Action<void> = yield take(menuActions.fetchPopularItems.started);
 
       const worker = yield spawn(fetchPopularItemsWorker, action.payload);
 
       yield take(LOCATION_CHANGE);
       yield cancel(worker);
-    } catch (error) { }
+    } catch (error) {
+      // Error does not need to be handled!
+    }
   }
 }

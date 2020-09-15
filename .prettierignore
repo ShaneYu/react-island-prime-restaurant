@@ -5,4 +5,5 @@
 /.vscode
 /package-lock.json
 
-/src/react-app-env.d.ts
+*.ts
+*.tsx

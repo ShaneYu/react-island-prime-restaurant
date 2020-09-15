@@ -5,6 +5,9 @@
     "jest": true
   },
   "rules": {
-    "global-require": "off"
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
+    "max-len": ["error", { "code": 170, "ignoreUrls": true, "tabWidth": 2 }],
+    "func-names": ["error", "always", { "generators": "as-needed" }]
   }
 }

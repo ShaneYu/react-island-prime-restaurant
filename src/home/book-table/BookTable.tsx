@@ -1,9 +1,13 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+    faCalendar,
+    faChevronDown,
+    faClock,
+    faUser
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, ListGroup, Row } from 'react-bootstrap';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCalendar, faChevronDown, faClock, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 library.add(faCalendar, faClock, faUser, faChevronDown);
 
@@ -51,7 +55,7 @@ const BookTable = ({ className }: BookTableProps) => {
               <FontAwesomeIcon icon={faChevronDown} />
             </ListGroup.Item>
             <ListGroup.Item>
-              <button className="btn btn-dark w-100 h-100">Find a table</button>
+              <button type="button" className="btn btn-dark w-100 h-100">Find a table</button>
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -60,9 +64,7 @@ const BookTable = ({ className }: BookTableProps) => {
             Instant reservation available
           </p>
           <h4 className="text-uppercase">Book a table</h4>
-          <button className="btn btn-outline-dark text-uppercase mt-2">
-            Contact us
-          </button>
+          <button type="button" className="btn btn-outline-dark text-uppercase mt-2">Contact us</button>
         </Col>
       </Row>
     </Container>

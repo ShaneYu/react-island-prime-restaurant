@@ -28,6 +28,8 @@ const useScrollPosition = (): ScrollPosition => {
 
       return () => window.removeEventListener('scroll', handleScrollEvent);
     }
+
+    return undefined;
   }, []);
 
   return position;

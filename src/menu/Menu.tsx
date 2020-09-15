@@ -6,7 +6,11 @@ import { Trail } from 'react-spring/renderprops';
 import { GlobalState } from '../rootReducer';
 import { menuActions } from './reducer';
 import {
-    getCategories, getCategoriesError, getIsFetchingCategories, getIsFetchingItems, getItems,
+    getCategories,
+    getCategoriesError,
+    getIsFetchingCategories,
+    getIsFetchingItems,
+    getItems,
     getItemsError
 } from './selectors';
 
@@ -14,13 +18,8 @@ const Menu = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: GlobalState) => getItems(state));
   const categories = useSelector((state: GlobalState) => getCategories(state));
-
-  const isFetching = useSelector((state: GlobalState) =>
-    getIsFetchingCategories(state) || getIsFetchingItems(state)
-  );
-
-  const error = useSelector((state: GlobalState) =>
-    getCategoriesError(state) || getItemsError(state));
+  const isFetching = useSelector((state: GlobalState) => getIsFetchingCategories(state) || getIsFetchingItems(state));
+  const error = useSelector((state: GlobalState) => getCategoriesError(state) || getItemsError(state));
 
   useEffect(() => {
     const requestCategories = async () => dispatch(menuActions.fetchCategories.started());
@@ -66,23 +65,31 @@ const Menu = () => {
                   delay: 250
                 }}
               >
-                {(item) => (props) => (
-                  <Media className="col-12 col-lg-6" style={props}>
-                    <img width={80} height={80} className="media-img img-fluid rounded-circle align-self-start mr-3" src={require(`../assets/images/items/square/${item.id}.jpg`)} alt={`${item.name}`} />
+                {(item) => (itemProps) => (
+                  <Media className="col-12 col-lg-6" style={itemProps}>
+                    <img
+                      width={80}
+                      height={80}
+                      className="media-img img-fluid rounded-circle align-self-start mr-3"
+                      src={require(`../assets/images/items/square/${item.id}.jpg`)}
+                      alt={`${item.name}`}
+                    />
+
                     <Media.Body>
                       <h3>{item.name}</h3>
                       <p>{item.description}</p>
                     </Media.Body>
                     <div className="media-actions d-flex flex-column justify-content-between align-self-start h-100 ml-3">
                       <div className="text-right">&pound;{item.price}</div>
-                      <Button className="text-uppercase" variant="outline-dark" size="sm" >Add</Button>
+                      <Button className="text-uppercase" variant="outline-dark" size="sm" value="Add" />
                     </div>
                   </Media>
                 )}
               </Trail>
             </Col>
           </Row>
-        </Container>)}
+        </Container>
+      )}
     </Trail>
   );
 };

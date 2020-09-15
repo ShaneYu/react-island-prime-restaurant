@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Trail } from 'react-spring/renderprops';
 
 import { menuActions } from '../../menu/reducer';
-import { getIsFetchingPopularItems, getPopularItems } from '../../menu/selectors';
+import {
+    getIsFetchingPopularItems,
+    getPopularItems
+} from '../../menu/selectors';
 import { GlobalState } from '../../rootReducer';
 
 export interface PopularItemsProps {
@@ -33,6 +36,7 @@ const PopularItemsLoader = () => (
     {Array(4)
       .fill({})
       .map((_, index) => (
+        // eslint-disable-next-line react/no-array-index-key
         <PopularItemSkeleton2 key={index} />
       ))}
   </>

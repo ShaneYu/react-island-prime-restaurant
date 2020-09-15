@@ -10,16 +10,16 @@ router.get('/', (_, res) => res.json(itemCategories));
 
 // GET /:id - gets single item category
 router.get(`/:id(${constants.uuidv4Regex})`, (req, res) => {
-  const category = itemCategories.find(
+  const foundCategory = itemCategories.find(
     (category) => category.id === req.params.id
   );
 
-  if (!category) {
+  if (!foundCategory) {
     res.sendStatus(404);
     return;
   }
 
-  res.json(category);
+  res.json(foundCategory);
 });
 
 export default router;

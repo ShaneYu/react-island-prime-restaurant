@@ -17,7 +17,7 @@ const ScrollToTop = ({ children }: ScrollToTopProps) => {
     }
   }, [previousLocation, location]);
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <>{children}</>;
 };
 
 export default ScrollToTop;

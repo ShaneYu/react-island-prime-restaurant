@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { AxiosError } from 'axios';
 import produce from 'immer';
 import actionCreatorFactory from 'typescript-fsa';
@@ -24,21 +25,15 @@ export const initialState: MenuState = {
   isFetchingPopularItems: false,
   categories: [],
   items: [],
-  popularItems: [],
+  popularItems: []
 };
 
 const actionCreator = actionCreatorFactory('MENU');
 
 export const menuActions = {
-  fetchCategories: actionCreator.async<void, MenuCategory[], AxiosError | Error>(
-    'FETCH_CATEGORIES'
-  ),
-  fetchItems: actionCreator.async<void, MenuItem[], AxiosError | Error>(
-    'FETCH_ITEMS'
-  ),
-  fetchPopularItems: actionCreator.async<void, MenuItem[], AxiosError | Error>(
-    'FETCH_POPULAR_ITEMS'
-  ),
+  fetchCategories: actionCreator.async<void, MenuCategory[], AxiosError | Error>('FETCH_CATEGORIES'),
+  fetchItems: actionCreator.async<void, MenuItem[], AxiosError | Error>('FETCH_ITEMS'),
+  fetchPopularItems: actionCreator.async<void, MenuItem[], AxiosError | Error>('FETCH_POPULAR_ITEMS')
 };
 
 export default reducerWithInitialState(initialState)

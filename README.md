@@ -23,7 +23,7 @@ React/Redux.
   - [`npm run validate`](#npm-run-validate)
   - [`npm run prepublish`](#npm-run-prepublish)
 - [Environment Variables](#environment-variables)
-  - [What other .env files can be used?](#what-other-env-files-can-be-used)
+  - [Other .env files that can be used](#other-env-files-that-can-be-used)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -198,7 +198,7 @@ you run `npm test` it is always equal to `test` and when you run
 **You cannot override `NODE_ENV` manually.\*** This prevents developers from
 accidently devploying a slow development build to production.
 
-### What other .env files can be used?
+### Other .env files that can be used
 
 - `.env`: Default.
 - `.env.local`: Local overrides.
@@ -221,7 +221,7 @@ You can expand/use variables already on your machine in the .env files.
 
 For example, to get the environment variable `npm_package_version`:
 
-```
+```bash
 EXAMPLE_VARIABLE=$npm_package_version
 # also works:
 # EXAMPLE_VARIABLE=${npm_package_version}
@@ -229,7 +229,7 @@ EXAMPLE_VARIABLE=$npm_package_version
 
 Or expand variables local to the current `.env` file:
 
-```
+```bash
 DOMAIN=www.example.com
 EXAMPLE_BLAH=$DOMAIN/blah
 EXAMPLE_MEH=$DOMAIN/meh

@@ -1,6 +1,6 @@
-import { connectRouter, RouterState } from 'connected-react-router';
+import { RouterState, connectRouter } from 'connected-react-router';
 import { History } from 'history';
-import { reducer as toastrReducer, ToastrState } from 'react-redux-toastr';
+import { ToastrState, reducer as toastrReducer } from 'react-redux-toastr';
 import { combineReducers } from 'redux';
 
 import appReducer, { AppState } from './app/reducer';
