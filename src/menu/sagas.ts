@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { LOCATION_CHANGE } from 'connected-react-router';
+import _ from 'lodash';
 import { SagaIterator } from 'redux-saga';
 import { call, cancel, cancelled, spawn, take } from 'redux-saga/effects';
 import { Action } from 'typescript-fsa';
 import { bindAsyncAction } from 'typescript-fsa-redux-saga';
 
 import handleApiError from '../common/api/common/handleApiError';
+import MenuCategory from './models/MenuCategory';
 import { menuActions } from './reducer';
 import { fetchCategories, fetchItems, fetchPopularItems } from './services/menuApi';
 
@@ -15,9 +17,9 @@ const fetchCategoriesWorker = bindAsyncAction(menuActions.fetchCategories, {
   const cancelSource = axios.CancelToken.source();
 
   try {
-    const { data } = yield call(fetchCategories, cancelSource.token);
+    const { data }: { data: MenuCategory[] } = yield call(fetchCategories, cancelSource.token);
 
-    return data;
+    return _.orderBy(data || [], [(category) => category.order], ['asc']);
   } catch (error) {
     yield call(handleApiError, error);
   } finally {
