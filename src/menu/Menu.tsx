@@ -42,7 +42,7 @@ const Menu = () => {
       from={{ opacity: 0, transform: 'translate3d(0, -40px, 0)' }}
       to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
       config={{
-        duration: 250
+        duration: 500
       }}
     >
       {(category) => (props) => (
@@ -62,7 +62,7 @@ const Menu = () => {
                 to={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
                 config={{
                   duration: 500,
-                  delay: 250
+                  delay: 100
                 }}
               >
                 {(item) => (itemProps) => (
@@ -81,7 +81,7 @@ const Menu = () => {
                     </Media.Body>
                     <div className="media-actions d-flex flex-column justify-content-between align-self-start h-100 ml-3">
                       <div className="text-right">&pound;{item.price}</div>
-                      <Button className="text-uppercase" variant="outline-dark" size="sm" value="Add" />
+                      <Button className="text-uppercase" variant="outline-dark" size="sm">Add</Button>
                     </div>
                   </Media>
                 )}

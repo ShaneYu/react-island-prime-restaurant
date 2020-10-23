@@ -6,7 +6,7 @@ interface ScrollToTopProps {
   children?: React.ReactNode;
 }
 
-const ScrollToTop = ({ children }: ScrollToTopProps) => {
+const ScrollToTop: React.FC = ({ children }: ScrollToTopProps) => {
   const location = useLocation();
   const [previousLocation, setPreviousLocation] = useState<Location>();
 
