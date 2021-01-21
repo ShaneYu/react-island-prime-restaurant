@@ -83,7 +83,7 @@
     "express": "^4.17.1",
     "history": "^4.10.1",
     "husky": "^4.2.5",
-    "immer": "^6.0.5",
+    "immer": "^8.0.1",
     "import-sort": "^6.0.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-config": "^6.0.0",
