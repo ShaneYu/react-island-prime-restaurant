@@ -80,7 +80,7 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-typescript-prettier": "^2.1.1",
     "eslint-formatter-pretty": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "history": "^4.10.1",
     "husky": "^4.2.5",
     "immer": "^6.0.5",
